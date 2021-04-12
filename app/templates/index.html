@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>YouMarc</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for("index") }}"><strong>New Search</strong> <span class="sr-only">(current)</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <div class="container d-flex flex-column text-light text-center">
+        <div class="jumbotron bg-transparent">
+
+            
+            <div class="row justify-content-center">
+                <div class="col">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+                        What?
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title popup" id="exampleModalLabel">What?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="popup">
+                                    You can paste any URL from the following plattforms to download content:
+                                    <ul>
+                                        <li>YouTube</li>
+                                        <li>ARD Mediathek</li>
+                                        <li>ZDF Mediathek</li>
+                                    </ul>
+                                    
+                                    Plain audio download only works with YouTube URLs.
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <!--Modal End-->
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+                <form action="{{ url_for('download') }}" method="POST">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Paste URL here..." name="url" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="submit" id="button-addon2">Go!</button>
+                        </div>
+                    </div>
+            <div class="row justify-content-center">
+                <div class="col">
+                 
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="option" id="inlineRadio1" value="option1" checked="checked">
+                        <label class="form-check-label" for="inlineRadio1">HD Video</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="option" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Only Audio</label>
+                    </div>
+                </div>
+            </div>
+                </form>
+            </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

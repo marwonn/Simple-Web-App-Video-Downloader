@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>YouMarc</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for("index") }}"><strong>New Search</strong> <span class="sr-only">(current)</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    
+    <br>
+    <br>
+
+    <div class="container-sm p-3 my-3 bg-dark text-white">
+        <div class="row">
+            <div class="col">
+                <p><img src="{{thumbnail_url}}" class="img-fluid rounded"></p>
+                <p><strong>{{title}}</strong></p>
+                <div>
+                <a href="{{ url_for("start_download") }}" download="{{ title }}.{{ extension }}" target="_blank"> 
+                    <button type="submit" class="btn btn-success" id="download-btn">Download {{ file_format }}</button>
+                </a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
